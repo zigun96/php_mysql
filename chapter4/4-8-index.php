@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf=8">
+        <meta charset="utf-8">
         <title>
             URL 파라미터의 활용
         </title>
@@ -13,8 +13,8 @@
     <body>
         <h1>WEB</h1>
         <ol>
-            <li><a href="index.php?id=HTML">HTML</a></li>
-            <li><a href="index.php?id=CSS">CSS</a></li>
+            <li><a href="4-8-index.php?id=HTML">HTML</a></li>
+            <li><a href="4-8-index.php?id=CSS">CSS</a></li>
             <li><a href="./?id=JavaScript">JavaScript</a></li>
         </ol>
         <h2>
