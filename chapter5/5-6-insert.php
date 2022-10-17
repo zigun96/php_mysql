@@ -7,16 +7,16 @@
 
     // 방법 1) API를 이용한 SQL문 삽입
     $conn = mysqli_connect("localhost","root","koreait514","opentutorials");
-    mysqli_query($conn, "
-        INSERT INTO topic (
-            title,
-            description,
-            created
-            ) VALUES (
-                'MySQL',
-                'MySQL is ...'
-                NOW()
-            )");
+    // mysqli_query($conn, "
+    //     INSERT INTO topic (
+    //         title,
+    //         description,
+    //         created
+    //         ) VALUES (
+    //             'MySQL',
+    //             'MySQL is ...'
+    //             NOW()
+    //         )");
     
     // 방법 2) $sql 변수에 저장하고 API SQL을 이용한 SQL문 삽입        
     $sql = "
@@ -29,16 +29,13 @@
                 'MySQL2 is ...
                 NOW();
             )";
-    
-    
-    
+
     
             // echo $sql; /* error 여부 확인 */
 
     // mysqli_query($conn, $sql);
 
     // echo mysqli_error($conn); /* error 내용 확인(인자값으로 DB $link 변수를 받음) */
-
 
 
     // $res = mysqli_query($mysqli,"SHOW TABLES FROM opentutorials");
@@ -50,4 +47,10 @@
     // $row = mysqli_fetch_assoc($res);
     // var_dump($row);
     // $res = $mysqli->query("SHOW TABLES");
+
+    $result = mysqli_query($conn, $sql); // conn : 연결변수, sql : 스키마 정보
+    if($result == false) { 
+        echo mysqli_error($conn); // 실행 실패시 오류문구 출력
+    }
+    ?>
 ?>
