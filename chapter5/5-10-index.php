@@ -6,7 +6,9 @@
     $result = mysqli_query($conn, $sql); // SQL문을 DB서버에 전송하는 API //mysqli_query(접속식별자, SQL문);
     $list = "";
     while ($row = mysqli_fetch_array($result)) {
-    $list = $list."<li><a href=\"5-10-index.php?id={$row['id']}\">{$row['title']}</a></li>"; // list에 행 이어붙여 출력하고 해당 링크 걸기 (id값을 동적으로 받는)
+         // htmlspecialchars();가 크로스 사이트 스크립팅을 막아줌
+        $escaped_title = htmlspecialchars($row['title']);
+        $list = $list."<li><a href=\"5-10-index.php?id={$row['id']}\">{$escaped_title}</a></li>"; // list에 행 이어붙여 출력하고 해당 링크 걸기 (id값을 동적으로 받는)
     }
     // 연관배열 article default값
     $article = array( 
@@ -23,8 +25,9 @@
         //     'title' => $row['title'],
         //     'description' => $row['description']
         // );
-        $article['title'] = $row['title']; // 배열형태로 가져온 'title'을 저장
-        $article['description'] = $row['description']; // 배열형태로 가져온 'description'을 저장
+        // htmlspecialchars();가 크로스 사이트 스크립팅을 막아줌
+        $article['title'] = htmlspecialchars($row['title']); // 배열형태로 가져온 'title'을 저장
+        $article['description'] =htmlspecialchars($row['description']); // 배열형태로 가져온 'description'을 저장
         print_r($article);
     }
 ?>
